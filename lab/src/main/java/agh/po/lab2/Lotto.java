@@ -5,31 +5,45 @@ import java.util.Random;
 
 public class Lotto {
     public static void main(String[] args){
-        ArrayList<Integer> lista = new ArrayList<>();
-        /*
-        Random randomNumbers = new Random();
-        int liczba;
-        for(int i= 0; i<6; i++){
-            do{
-                liczba = randomNumbers.nextInt(49) + 1;
-            }
-            while(lista.contains(liczba));
-            lista.add(liczba);
-        }
-         */
-        if(args.length == 6){
-            for(int i = 0; i<6; i++){
-                do{
-                    lista.add(Integer.parseInt(args[i]));
+        boolean hura=false;
+        long start = System.currentTimeMillis();
+        while(hura == false){
+            ArrayList<Integer> lista_losowa = new ArrayList<>();
+            Random randomNumbers = new Random();
+            int liczba;
+            for(int i= 0; i<6; i++) {
+                do {
+                    liczba = randomNumbers.nextInt(49) + 1;
                 }
-                while((lista.contains(Integer.parseInt(args[i]))));
-                lista.add(Integer.parseInt(args[i]));
+                while (lista_losowa.contains(liczba));
+                lista_losowa.add(liczba);
             }
-            lista.forEach(System.out::println);
+            ArrayList<Integer> lista_uzytkownika = new ArrayList<>();
+            if(args.length == 6){
+                for(int i = 0; i<6; i++){
+                    lista_uzytkownika.add(Integer.parseInt(args[i]));
+                }
+                int trafienia = 0;
+                for (int l : lista_uzytkownika) {
+                    if (lista_losowa.contains(l)) {
+                        trafienia++;
+                    }
+                }
+                System.out.println("Liczby uzytkownika: " + lista_uzytkownika);
+                System.out.println("Wylosowane liczby: " + lista_losowa);
+                System.out.println("Liczba trafień: " + trafienia);
+                if(trafienia == 6){
+                    hura = true;
+                }
+            }
+            else{
+                System.out.println("Tablica nie zawiera 6 liczb!");
+                break;
+            }
         }
-        else{
-            System.out.println("Tablica nie zawiera 6 liczb!");
-        }
+        long end = System.currentTimeMillis();
+        long time = end - start;
+        System.out.println("Czas wykonania: " + time + " ms");
         }
 
     }
