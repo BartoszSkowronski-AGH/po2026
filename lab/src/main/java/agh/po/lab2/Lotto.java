@@ -6,7 +6,7 @@ import java.util.Random;
 public class Lotto {
     public static void main(String[] args){
         long suma=0;
-        for(int j = 0; j<100; j++){
+        for(int j = 0; j<1; j++){
             boolean hura=false;
             long start = System.currentTimeMillis();
             long ilosc_powtorzen=1;
@@ -37,12 +37,11 @@ public class Lotto {
                         long end = System.currentTimeMillis();
                         long time = end - start;
                         suma += ilosc_powtorzen/time;
-                        /*
                         System.out.println("Liczby uzytkownika: " + lista_uzytkownika);
                         System.out.println("Wylosowane liczby: " + lista_losowa);
                         System.out.println("Liczba trafień: " + trafienia);
                         System.out.println("Czas wykonania: " + time + " ms. Wygrana za " + ilosc_powtorzen + " proba!");
-                         */
+
                     }
                 }
                 else{
