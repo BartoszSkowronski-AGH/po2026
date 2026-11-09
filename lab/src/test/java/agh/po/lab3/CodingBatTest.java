@@ -50,4 +50,5 @@ public class CodingBatTest {
         assertEquals(Map.of("that", 4, "and", 3, "this", 4), codingBat.wordLen(new String[]{"this", "and", "that", "and"}));
         assertEquals(Map.of("code", 4, "bug", 3), codingBat.wordLen(new String[]{"code", "code", "code", "bug"}));
     }
+
 }
